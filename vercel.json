@@ -2,45 +2,21 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*.py",
-      "use": "@vercel/python"
-    },
-    {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "build"
       }
+    },
+    {
+      "src": "api/*.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/predict",
-      "dest": "/api/predict.py"
-    },
-    {
-      "src": "/api/bulk-predict",
-      "dest": "/api/bulk-predict.py"
-    },
-    {
-      "src": "/api/analytics",
-      "dest": "/api/analytics.py"
-    },
-    {
-      "src": "/api/model-info",
-      "dest": "/api/model-info.py"
-    },
-    {
-      "src": "/api/upload",
-      "dest": "/api/upload.py"
-    },
-    {
       "src": "/api/(.*)",
-      "dest": "/api/index.py"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))",
-      "dest": "/frontend/build/$1"
+      "dest": "/api/$1.py"
     },
     {
       "src": "/(.*)",
