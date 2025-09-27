@@ -1,0 +1,8 @@
+# Ignore Python files for Netlify deployment
+*.py
+api/
+backend/
+__pycache__/
+*.pyc
+venv/
+.env
